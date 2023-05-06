@@ -38,16 +38,27 @@ class Player(GameSprite):
         if keys[K_DOWN] and self.rect.y < wind_w - 80:
             self.rect.y += self.speed
 
+racket1 = Player('racket.png', 30, 200, 50, 150, 4)
+racket2 = Player('racket.png', 520, 200, 50, 150, 4)
+ball = GameSprite('tenis_ball.png', 200, 200, 50, 50, 4)
+finish = False
 game = True
 while game:
     for e in event.get():
         if e.type == QUIT:
             game = False
-    
-    display.update()
-    timer.tick(FPS)
-    wind.fill((255, 255, 255))
+
+    if finish == False:
+        racket1.update_l()
+        racket2.update_r()
+
+        wind.fill((255, 255, 255))
+        racket1.reset()
+        racket2.reset()
+        ball.reset()
+
 
     display.update()
     timer.tick(FPS)
+
 
