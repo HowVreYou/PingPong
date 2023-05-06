@@ -67,10 +67,14 @@ while game:
         racket2.reset()
         ball.reset()
 
+        if ball.rect.x<=0:
+            finish = True
+
+
+        if ball.rect.x>=wind_w - 50:
+            finish = True
 
     display.update()
     timer.tick(FPS)
-
-
 
 
