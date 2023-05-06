@@ -59,7 +59,8 @@ while game:
         ball.rect.y += dy
         if ball.rect.y<0 or ball.rect.y>=wind_h - 50:
             dy *= -1
-
+        if sprite.collide_rect(racket1, ball) or sprite.collide_rect(racket2, ball):
+            dx *= -1
 
         wind.fill((255, 255, 255))
         racket1.reset()
@@ -69,5 +70,7 @@ while game:
 
     display.update()
     timer.tick(FPS)
+
+
 
 
