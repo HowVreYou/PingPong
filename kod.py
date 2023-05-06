@@ -45,6 +45,11 @@ ball = GameSprite('tenis_ball.png', 200, 200, 50, 50, 4)
 dx = 3
 dy = 3
 
+font.init()
+font1 = font.Font(None, 70)
+lose1 = font1.render('Первый проиграл!', True, (200,200,200))
+lose2 = font1.render('Второй проиграл!', True, (200,200,200))
+
 finish = False
 game = True
 while game:
@@ -69,10 +74,12 @@ while game:
 
         if ball.rect.x<=0:
             finish = True
+            wind.blit(lose1, (200,200))
 
 
         if ball.rect.x>=wind_w - 50:
             finish = True
+            wind.blit(lose2, (200,200))
 
     display.update()
     timer.tick(FPS)
