@@ -57,6 +57,8 @@ while game:
         racket2.update_r()
         ball.rect.x += dx
         ball.rect.y += dy
+        if ball.rect.y<0 or ball.rect.y>=wind_h - 50:
+            dy *= -1
 
 
         wind.fill((255, 255, 255))
